@@ -6,6 +6,7 @@
 #define MyAppPublisher "VVZERO.COM"
 #define MyAppURL "https://www.vvzero.com"
 #define MyAppExeName "QuickLink.exe"
+#define ProjectBase "C:\path\to\Project"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
@@ -34,7 +35,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Users\fengjinjin\source\repos\QuickLink\bin\Debug\netcoreapp3.1\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "{#ProjectBase}\bin\Debug\netcoreapp3.1\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

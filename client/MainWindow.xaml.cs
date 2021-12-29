@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +28,7 @@ namespace QuickLink
             InitializeComponent();
         }
 
-        private readonly string UploadUrl = "http://127.0.0.1:5000/upload";
+        private readonly string UploadUrl = "https://quicklink.vvzero.xyz/upload";
 
         public struct SuccessResponse
         {
