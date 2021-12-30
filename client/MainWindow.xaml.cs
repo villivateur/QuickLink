@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,6 +47,7 @@ namespace QuickLink
             catch
             {
                 ShowErrorBox("Don't open this directly.");
+                Close();
                 return;
             }
 
@@ -76,22 +77,20 @@ namespace QuickLink
                 {
                     ShowErrorBox("Network error: " + e.Message);
                 }
+                Close();
                 return;
             }
             catch (Exception e)
             {
                 ShowErrorBox("Unknown error: " + e.Message);
+                Close();
                 return;
             }
-
-            try
-            {
-                Clipboard.SetDataObject(downloadUrl);
-            }
-            catch (Exception e)
-            {
-                ShowErrorBox(e.Message);
-            }
+            Button_Finish.IsEnabled = true;
+            TextBox_Url.IsEnabled = true;
+            TextBox_Url.Text = downloadUrl;
+            TextBox_Url.Focus();
+            TextBox_Url.SelectAll();
         }
 
         private void ShowErrorBox(string msg)
@@ -102,6 +101,11 @@ namespace QuickLink
                 "Error",
                 MessageBoxButton.OK,
                 MessageBoxImage.Error);
+        }
+
+        private void Button_Finish_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

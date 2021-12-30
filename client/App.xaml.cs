@@ -18,7 +18,6 @@ namespace QuickLink
             MainWindow window = new MainWindow();
             window.Show();
             window.UploadFile();
-            window.Close();
         }
     }
 }
